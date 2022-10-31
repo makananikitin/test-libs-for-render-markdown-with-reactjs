@@ -11,7 +11,7 @@
     "rehype-external-links": "^2.0.1",
     "rehype-katex": "^6.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-linkify": "^1.0.1",
+    "remark-linkify-modifier": "^0.0.1",
     "remark-math": "^5.1.1"
   },
   "devDependencies": {

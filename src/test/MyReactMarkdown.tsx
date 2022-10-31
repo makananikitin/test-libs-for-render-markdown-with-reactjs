@@ -4,7 +4,7 @@ import { template } from "./markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import remarkLinkify from "remark-linkify";
+import remarkLinkifyModifier from "remark-linkify-modifier";
 
 import "katex/dist/katex.min.css";
 import rehypeExternalLinks from "rehype-external-links";
@@ -27,7 +27,7 @@ export const MyReactMarkdown = () => {
         <ReactMarkdown
           remarkPlugins={[
             remarkGfm,
-            remarkLinkify({
+            remarkLinkifyModifier({
               regex:
                 /([a-zA-Z]+[a-zA-Z0-9]*)\.([a-zA-Z0-9]+)\.([a-zA-Z0-9]{2,})(((\/)|(\?[a-zA-Z]{1}[^\s]*\=))[^\s]*([a-zA-Z0-9\&\=\-\_\%\/\~\#\$\*\+]))?/,
               modifier: {
