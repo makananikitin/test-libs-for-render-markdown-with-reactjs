@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-remark": "^2.1.0",
     "react-scripts": "5.0.1",
+    "rehype-external-links": "^2.0.1",
     "rehype-katex": "^6.0.2",
     "remark-gfm": "^3.0.1",
+    "remark-linkify": "^1.0.1",
     "remark-math": "^5.1.1"
   },
   "devDependencies": {

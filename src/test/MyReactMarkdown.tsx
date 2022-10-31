@@ -4,8 +4,10 @@ import { template } from "./markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import remarkLinkify from "remark-linkify";
 
-import 'katex/dist/katex.min.css'
+import "katex/dist/katex.min.css";
+import rehypeExternalLinks from "rehype-external-links";
 
 export const MyReactMarkdown = () => {
   const [text, setText] = useState(template);
@@ -23,8 +25,21 @@ export const MyReactMarkdown = () => {
         }}
       >
         <ReactMarkdown
-          remarkPlugins={[remarkGfm, remarkMath]}
-          rehypePlugins={[rehypeKatex]}
+          remarkPlugins={[
+            remarkGfm,
+            remarkLinkify({
+              regex:
+                /([a-zA-Z]+[a-zA-Z0-9]*)\.([a-zA-Z0-9]+)\.([a-zA-Z0-9]{2,})(((\/)|(\?[a-zA-Z]{1}[^\s]*\=))[^\s]*([a-zA-Z0-9\&\=\-\_\%\/\~\#\$\*\+]))?/,
+              modifier: {
+                modifyLink: (link) => "http://" + link,
+              },
+            }),
+            remarkMath,
+          ]}
+          rehypePlugins={[
+            rehypeKatex,
+            [rehypeExternalLinks, { target: "_blank" }],
+          ]}
         >
           {text}
         </ReactMarkdown>
